@@ -17,7 +17,10 @@ function renderInputBoard() {
   for (let i = 0; i < 25; i++) {
     const cell = document.createElement("div");
     cell.classList.add("cell");
-    cell.textContent = userInputBoard[i] ?? "";
+    cell.textContent = userInputBoard[i]
+      ? String.fromCharCode(64 + userInputBoard[i])
+      : "";
+
     cell.dataset.index = i;
     inputDiv.appendChild(cell);
   }
@@ -34,7 +37,8 @@ function handleCellClick(e) {
           'All numbers set! Click "Start Game" to begin.';
         startBtn.style.display = "inline-block";
       } else {
-        messageDiv.textContent = `Click cell to set number ${currentNumber}`;
+        const alphabet = String.fromCharCode(64 + currentNumber);
+        messageDiv.textContent = `Click cell to set alphabet ${alphabet}`;
       }
     }
   }
@@ -44,7 +48,7 @@ inputDiv.addEventListener("click", handleCellClick);
 
 // Initialize
 renderInputBoard();
-messageDiv.textContent = "Click cell to set number 1";
+messageDiv.textContent = "Click cell to set alphabet A";
 
 startBtn.onclick = () => {
   // Validate userInputBoard - should be all numbers 1-25

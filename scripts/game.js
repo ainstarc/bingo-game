@@ -1,31 +1,28 @@
-import { handleUserBoardInput } from "./setup/userBoardInput.js";
 import { handleTurn } from "./logic/turnHandler.js";
 import { gameState } from "./state/gameState.js";
-import './setup/userBoardClickInput.js';
-
+import { boardState } from "./state/boardState.js";
+import "./setup/userBoardClickInput.js"; // this sets up interactive click input
 
 window.playTurn = handleTurn;
 
-// For testing/demo: temporary board input (replace with real form later)
-const defaultBoard = Array.from({ length: 25 }, (_, i) => i + 1);
-handleUserBoardInput(defaultBoard);
-
 document.getElementById("reset-btn").onclick = () => {
-  // Clear states
+  // Clear core game state
   gameState.currentTurn = "user";
   gameState.markedNumbers.clear();
   gameState.playerLines.clear();
   gameState.cpuLines.clear();
   gameState.winner = null;
 
+  // Clear board data
   boardState.player.fill(null);
   boardState.cpu = [];
   boardState.playerMarked.fill(false);
   boardState.cpuMarked.fill(false);
 
-  // For demo, reset to default board again
-  const defaultBoard = Array.from({ length: 25 }, (_, i) => i + 1);
-  handleUserBoardInput(defaultBoard);
+  // Hide the game UI and show input again
+  document.getElementById("game-ui").style.display = "none";
 
-  document.getElementById("status").textContent = "Your turn";
+  // Reload page to re-initialize input UI
+  // (simplest and ensures clean state)
+  window.location.reload();
 };
