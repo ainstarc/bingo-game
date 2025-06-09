@@ -1,6 +1,8 @@
 import { handleUserBoardInput } from "./setup/userBoardInput.js";
 import { handleTurn } from "./logic/turnHandler.js";
 import { gameState } from "./state/gameState.js";
+import './setup/userBoardClickInput.js';
+
 
 window.playTurn = handleTurn;
 
