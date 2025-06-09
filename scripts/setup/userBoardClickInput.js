@@ -4,6 +4,7 @@ import { generateCPUBoard } from "./generateCPUBoard.js";
 import { gameState } from "../state/gameState.js";
 import { updateBingoStatus } from "../ui/updateBingoStatus.js";
 
+const gameStarter = document.getElementById("game-starter");
 const inputDiv = document.getElementById("user-board-input");
 const messageDiv = document.getElementById("input-message");
 const startBtn = document.getElementById("start-game-btn");
@@ -74,6 +75,7 @@ startBtn.onclick = () => {
   document.getElementById("status").textContent = "Your turn";
 
   // Hide input UI and start button
+  gameStarter.style.display = "none";
   inputDiv.style.display = "none";
   messageDiv.style.display = "none";
   startBtn.style.display = "none";
