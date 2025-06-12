@@ -8,25 +8,31 @@
 </head>
 
 <body>
-    <div id="game-starter" style="font-weight: bolder;">
-        <h2 id="input-message" style="font-weight: bold;">Set Your Board Numbers</h2>
+    <div id="game-starter">
+        <h2 id="input-title">Set Your Board Numbers</h2>
         <div id="user-board-input" class="board"></div>
-        <div id="input-message" style="margin-top: 10px; font-weight: bold;"></div>
-        <button id="start-game-btn" style="display:none; margin-top:10px;">Start Game</button>
+        <div id="input-message"></div>
+        <button id="start-game-btn">Start Game</button>
+        <button id="fill-random-values-btn">Fill Random Values</button>
     </div>
 
-
-    <div id="game-ui" style="display: none;">
+    <div id="game-ui">
         <h1>Bingo</h1>
         <div id="status">Your turn</div>
 
-        <h2>Your Board</h2>
-        <div id="player-board" class="board"></div>
-        <div id="player-bingo-status" class="bingo-status">BINGO</div>
+        <div class="boards-area">
+            <div class="player-board-section board-section">
+                <h2>Your Board</h2>
+                <div id="player-board" class="board"></div>
+                <div id="player-bingo-status" class="bingo-status">BINGO</div>
+            </div>
 
-        <h2>Computer's Board</h2>
-        <div id="cpu-board" class="board"></div>
-        <div id="cpu-bingo-status" class="bingo-status">BINGO</div>
+            <div class="cpu-board-section board-section">
+                <h2>Computer's Board</h2>
+                <div id="cpu-board" class="board"></div>
+                <div id="cpu-bingo-status" class="bingo-status">BINGO</div>
+            </div>
+        </div>
 
         <button id="reset-btn">Reset Game</button>
     </div>

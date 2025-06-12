@@ -9,6 +9,7 @@ const inputDiv = document.getElementById("user-board-input");
 const messageDiv = document.getElementById("input-message");
 const startBtn = document.getElementById("start-game-btn");
 const gameUI = document.getElementById("game-ui");
+const fillRandomValuesBtn = document.getElementById("fill-random-values-btn");
 
 let currentNumber = 1;
 const userInputBoard = Array(25).fill(null);
@@ -44,8 +45,36 @@ function handleCellClick(e) {
     }
   }
 }
-
 inputDiv.addEventListener("click", handleCellClick);
+
+fillRandomValuesBtn.onclick = () => {
+  // Create an array with numbers 1 to 25
+  const numbers = Array.from({ length: 25 }, (_, i) => i + 1);
+
+  // Shuffle the array
+  for (let i = numbers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+  }
+
+  // Assign shuffled numbers to userInputBoard
+  // userInputBoard = [...numbers];
+  for (let i = 0; i < 25; i++) {
+    userInputBoard[i] = numbers[i];
+  }
+
+  // Set currentNumber to 26 since board is fully filled
+  currentNumber = 26;
+
+  // Render the updated board
+  renderInputBoard();
+
+  // Show message and start button
+  messageDiv.textContent = 'Random values filled! Click "Start Game" to begin.';
+  startBtn.style.display = "inline-block";
+};
+
+
 
 // Initialize
 renderInputBoard();
