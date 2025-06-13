@@ -1,0 +1,113 @@
+/* Game Layout Styles */
+#game-starter,
+#game-ui {
+  background-color: var(--card-background-color);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#game-starter {
+  font-weight: bold;
+}
+
+/* Initial states (JS will toggle display) */
+#game-ui,
+#start-game-btn {
+  display: none;
+}
+
+/* Specific max-width for game-ui to accommodate side-by-side boards */
+#game-ui {
+  max-width: 1000px;
+}
+
+/* Status and Messages */
+#status {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 15px 0 20px;
+  color: var(--secondary-color);
+}
+
+#input-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+#input-message {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1em;
+  color: #555555;
+  min-height: 1.5em;
+  padding: 5px;
+}
+
+/* Layout for side-by-side boards */
+.boards-area {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  margin: 20px 0;
+}
+
+.board-section {
+  width: calc(40% / 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .boards-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0;
+  }
+
+  .board-section {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  #game-starter,
+  #game-ui {
+    padding: 15px;
+  }
+
+  .board {
+    grid-gap: 4px;
+    padding: 5px;
+  }
+
+  .cell {
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  .bingo-status {
+    font-size: 1.8em;
+    letter-spacing: 5px;
+  }
+}

@@ -1,0 +1,73 @@
+/* Board and Cells */
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  border: 2px solid var(--border-color);
+  padding: 8px;
+  margin: 10px 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-background-color);
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: default;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border-radius: 3px;
+}
+
+/* Clickable cells in user input board */
+#user-board-input .cell:empty {
+  background-color: #f0f0f0;
+}
+
+#user-board-input .cell:empty:hover {
+  background-color: var(--cell-hover-bg);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* Player board clickable cells (if not marked) */
+#player-board .cell:not(.marked):hover {
+  background-color: var(--cell-hover-bg);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.cell.marked {
+  background-color: var(--marked-cell-bg);
+  color: var(--text-color);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  font-style: italic;
+}
+
+/* Bingo Status Display */
+.bingo-status {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2.2em;
+  font-weight: bold;
+  letter-spacing: 8px;
+  margin: 15px 0 20px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #e7e7e7;
+  display: inline-block;
+}
+
+.bingo-status .crossed {
+  text-decoration: line-through;
+  text-decoration-color: #e74c3c;
+  text-decoration-thickness: 3px;
+  color: #7f8c8d;
+}

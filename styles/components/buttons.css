@@ -1,0 +1,42 @@
+/* Button Styles */
+button {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin: 8px 5px;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#start-game-btn {
+  margin-top: 10px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+#start-game-btn:hover {
+  background-color: #3dbaa2;
+}
+
+#fill-random-values-btn,
+#reset-btn {
+  background-color: var(--accent-color);
+}
+
+#fill-random-values-btn:hover,
+#reset-btn:hover {
+  background-color: var(--accent-button-hover-bg);
+}

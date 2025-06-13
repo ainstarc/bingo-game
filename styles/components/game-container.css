@@ -1,0 +1,26 @@
+/* Game Container Styles */
+.game-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-large);
+}
+
+#game-starter,
+#game-ui {
+  background-color: var(--card-background-color);
+  padding: var(--spacing-large);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--spacing-large);
+  width: 100%;
+}
+
+#game-starter {
+  max-width: 500px;
+  font-weight: bold;
+}
+
+#game-ui {
+  max-width: 1000px;
+}

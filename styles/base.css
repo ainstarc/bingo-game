@@ -1,0 +1,92 @@
+/* Base styles and variables */
+:root {
+  /* Color Palette */
+  --primary-color: #4a90e2;
+  --secondary-color: #50e3c2;
+  --accent-color: #f0ad4e;
+
+  /* Background Colors */
+  --background-color: #f4f7f6;
+  --card-background-color: #ffffff;
+
+  /* Text Colors */
+  --text-color: #333333;
+  --light-text-color: #ffffff;
+
+  /* UI Elements */
+  --border-color: #dddddd;
+  --marked-cell-bg: #a8d5ba;
+  --cell-hover-bg: #e9e9e9;
+  --button-hover-bg: #357abd;
+  --accent-button-hover-bg: #ec971f;
+
+  /* Typography */
+  --font-family: "Arial", sans-serif;
+  --heading-large: 2.5em;
+  --heading-medium: 1.5em;
+  --text-regular: 1em;
+  --text-large: 1.3em;
+
+  /* Spacing */
+  --spacing-small: 5px;
+  --spacing-medium: 10px;
+  --spacing-large: 20px;
+
+  /* Transitions */
+  --transition-quick: 0.1s ease;
+  --transition-normal: 0.2s ease;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: var(--spacing-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.6;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-large);
+  font-size: var(--heading-large);
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-top: var(--spacing-large);
+  margin-bottom: var(--spacing-medium);
+  font-size: var(--heading-medium);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+.d-flex {
+  display: flex;
+}
+.align-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.w-100 {
+  width: 100%;
+}
