@@ -1,4 +1,4 @@
-export class BoardRenderer {
+export class BingoRenderer {
   static displayValue(value) {
     return value ? String.fromCharCode(64 + value) : "";
   }
@@ -19,7 +19,7 @@ export class BoardRenderer {
     return cell;
   }
 
-  static renderBoard(boardElement, cells, marked, onCellClick = null) {
+  static updateBoard(boardElement, cells, marked, onCellClick = null) {
     boardElement.innerHTML = "";
     cells.forEach((value, index) => {
       const cell = this.renderCell(
@@ -36,5 +36,18 @@ export class BoardRenderer {
     element.innerHTML = BINGO.map((letter, idx) =>
       idx < completedLines ? `<span class="crossed">${letter}</span>` : letter
     ).join("");
+  }
+
+  static updateGameStatus(element, state) {
+    if (state.winner) {
+      element.textContent =
+        state.winner === "draw"
+          ? "Game Over - It's a Draw!"
+          : state.winner === "human"
+          ? "You Win!"
+          : "Computer Wins!";
+    } else {
+      element.textContent = "Your turn";
+    }
   }
 }

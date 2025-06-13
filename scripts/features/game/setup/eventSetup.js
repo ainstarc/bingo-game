@@ -1,35 +1,10 @@
-import { Game } from "../../../core/engine/Game.js";
-import { domElements } from "../../../ui/domElements.js";
-import { BoardRenderer } from "../../../ui/renderBoard.js";
-import { GameEvents } from "../../../core/constants/gameConstants.js";
+import { GameHandlers } from "../handlers/gameHandlers.js";
+import { BingoRenderer } from "../../../ui/renderers/bingoRenderer.js";
 
-export function setupGameEvents(game) {
-  let currentInputNumber = 1;
-  const userInputBoard = Array(25).fill(null);
-
-  function updateInputBoard() {
-    BoardRenderer.renderBoard(
-      domElements.userBoardInput,
-      userInputBoard,
-      Array(25).fill(false),
-      null
-    );
-  }
-
-  function handleBoardInput(index) {
-    if (currentInputNumber > 25 || userInputBoard[index] !== null) return;
-    userInputBoard[index] = currentInputNumber++;
-    updateInputBoard();
-
-    if (currentInputNumber > 25) {
-      domElements.inputMessage.textContent =
-        'All numbers set! Click "Start Game" to begin.';
-      domElements.startGameBtn.style.display = "inline-block";
-    } else {
-      const nextLetter = String.fromCharCode(64 + currentInputNumber);
-      domElements.inputMessage.textContent = `Click cell to set alphabet ${nextLetter}`;
-    }
-  }
+export function setupGameEvents(game, elements) {
+  const renderer = BingoRenderer;
+  const handlers = new GameHandlers(game, elements, renderer);
+  handlers.init();
 
   // Setup input board click handlers
   domElements.userBoardInput.addEventListener("click", (e) => {

@@ -1,11 +1,12 @@
 import { Game } from "./core/engine/Game.js";
 import { setupGameEvents } from "./features/game/setup/eventSetup.js";
+import { domElements } from "./ui/domElements.js";
 
 // Initialize the game
 const game = new Game();
 
 // Setup all event handlers
-setupGameEvents(game);
+setupGameEvents(game, domElements);
 
 // Hide game UI initially
-document.getElementById("game-ui").style.display = "none";
+domElements.gameUI.style.display = "none";
